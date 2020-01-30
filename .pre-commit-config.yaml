@@ -9,13 +9,13 @@ repos:
     hooks:
       - id: radon
         name: radon
-        entry: radon cc -a -s -nb workingless/
-        language: python
+        entry: run_radon.sh
+        language: script
         types: [python]
   - repo: local
     hooks:
       - id: test
         name: tests
-        entry: pytest -s -vvv tests/
-        language: python
+        entry: run_tests.sh
+        language: script
         types: [python]
