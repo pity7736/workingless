@@ -9,6 +9,8 @@ from workingless.utils import get_next_day
 
 class Holiday:
 
+    __slots__ = ('_kind', '_month', '_day', '_days')
+
     def __init__(self, kind: HolidayKind, month: int = None, day: int = None, days: int = None):
         assert month and day or days is not None
         self._kind = kind
