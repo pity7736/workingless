@@ -105,6 +105,31 @@ years_holidays = (
             datetime.date(2023, 12, 8),
             datetime.date(2023, 12, 25)
         ]
+    ),
+    (
+        1999,
+        [
+            datetime.date(1999, 1, 1),
+            datetime.date(1999, 1, 11),
+            datetime.date(1999, 3, 22),
+            datetime.date(1999, 3, 28),
+            datetime.date(1999, 4, 1),
+            datetime.date(1999, 4, 2),
+            datetime.date(1999, 4, 4),
+            datetime.date(1999, 5, 1),
+            datetime.date(1999, 5, 17),
+            datetime.date(1999, 6, 7),
+            datetime.date(1999, 6, 14),
+            datetime.date(1999, 7, 5),
+            datetime.date(1999, 7, 20),
+            datetime.date(1999, 8, 7),
+            datetime.date(1999, 8, 16),
+            datetime.date(1999, 10, 18),
+            datetime.date(1999, 11, 1),
+            datetime.date(1999, 11, 15),
+            datetime.date(1999, 12, 8),
+            datetime.date(1999, 12, 25)
+        ]
     )
 )
 
