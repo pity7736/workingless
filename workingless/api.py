@@ -2,30 +2,30 @@ import datetime
 from typing import Union, Generator
 
 from workingless import constants
-from workingless.models.holiday import Holiday
+from workingless.holidaycalculator import HolidayCalculator
 
 
 holidays = (
-    Holiday(constants.HolidayKind.FIXED, constants.JANUARY, 1),
-    Holiday(constants.HolidayKind.MOVING, constants.JANUARY, 6),
-    Holiday(constants.HolidayKind.MOVING, constants.MARCH, 19),
-    Holiday(constants.HolidayKind.EASTER, days=-7),
-    Holiday(constants.HolidayKind.EASTER, days=-3),
-    Holiday(constants.HolidayKind.EASTER, days=-2),
-    Holiday(constants.HolidayKind.EASTER, days=0),
-    Holiday(constants.HolidayKind.FIXED, constants.MAY, 1),
-    Holiday(constants.HolidayKind.EASTER, days=43),
-    Holiday(constants.HolidayKind.EASTER, days=64),
-    Holiday(constants.HolidayKind.EASTER, days=71),
-    Holiday(constants.HolidayKind.MOVING, constants.JUNE, 29),
-    Holiday(constants.HolidayKind.FIXED, constants.JULY, 20),
-    Holiday(constants.HolidayKind.FIXED, constants.AUGUST, 7),
-    Holiday(constants.HolidayKind.MOVING, constants.AUGUST, 15),
-    Holiday(constants.HolidayKind.MOVING, constants.OCTOBER, 12),
-    Holiday(constants.HolidayKind.MOVING, constants.NOVEMBER, 1),
-    Holiday(constants.HolidayKind.MOVING, constants.NOVEMBER, 11),
-    Holiday(constants.HolidayKind.FIXED, constants.DECEMBER, 8),
-    Holiday(constants.HolidayKind.FIXED, constants.DECEMBER, 25),
+    HolidayCalculator(constants.HolidayKind.FIXED, constants.JANUARY, 1),
+    HolidayCalculator(constants.HolidayKind.MOVING, constants.JANUARY, 6),
+    HolidayCalculator(constants.HolidayKind.MOVING, constants.MARCH, 19),
+    HolidayCalculator(constants.HolidayKind.EASTER, days=-7),
+    HolidayCalculator(constants.HolidayKind.EASTER, days=-3),
+    HolidayCalculator(constants.HolidayKind.EASTER, days=-2),
+    HolidayCalculator(constants.HolidayKind.EASTER, days=0),
+    HolidayCalculator(constants.HolidayKind.FIXED, constants.MAY, 1),
+    HolidayCalculator(constants.HolidayKind.EASTER, days=43),
+    HolidayCalculator(constants.HolidayKind.EASTER, days=64),
+    HolidayCalculator(constants.HolidayKind.EASTER, days=71),
+    HolidayCalculator(constants.HolidayKind.MOVING, constants.JUNE, 29),
+    HolidayCalculator(constants.HolidayKind.FIXED, constants.JULY, 20),
+    HolidayCalculator(constants.HolidayKind.FIXED, constants.AUGUST, 7),
+    HolidayCalculator(constants.HolidayKind.MOVING, constants.AUGUST, 15),
+    HolidayCalculator(constants.HolidayKind.MOVING, constants.OCTOBER, 12),
+    HolidayCalculator(constants.HolidayKind.MOVING, constants.NOVEMBER, 1),
+    HolidayCalculator(constants.HolidayKind.MOVING, constants.NOVEMBER, 11),
+    HolidayCalculator(constants.HolidayKind.FIXED, constants.DECEMBER, 8),
+    HolidayCalculator(constants.HolidayKind.FIXED, constants.DECEMBER, 25),
 )
 
 

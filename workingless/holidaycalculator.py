@@ -7,7 +7,7 @@ from workingless.constants import HolidayKind
 from workingless.utils import get_next_day
 
 
-class Holiday:
+class HolidayCalculator:
 
     __slots__ = ('_kind', '_month', '_day', '_days')
 
