@@ -1,5 +1,5 @@
 import datetime
-from typing import Union
+from typing import Union, Generator
 
 from workingless import constants
 from workingless.models.holiday import Holiday
@@ -29,12 +29,12 @@ holidays = (
 )
 
 
-def is_holiday(date: Union[datetime.date, datetime.datetime]):
+def is_holiday(date: Union[datetime.date, datetime.datetime]) -> bool:
     if isinstance(date, datetime.datetime):
         date = date.date()
     return date in get_holidays_from_year(date.year)
 
 
-def get_holidays_from_year(year: int):
+def get_holidays_from_year(year: int) -> Generator[datetime.date, None, None]:
     for holiday in holidays:
         yield holiday.calculate(year=year)

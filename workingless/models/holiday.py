@@ -18,7 +18,7 @@ class Holiday:
         self._day = day
         self._days = days
 
-    def calculate(self, year: int):
+    def calculate(self, year: int) -> datetime.date:
         if self._kind == HolidayKind.FIXED:
             return datetime.date(year, self._month, self._day)
         elif self._kind == HolidayKind.MOVING:
