@@ -1,13 +1,12 @@
 import datetime
 
-from dateutil.easter import easter
-from dateutil.relativedelta import relativedelta
+from workingless.constants import HolidayKindEnum
+from .easter_holiday_kind import EasterHolidayKind
+from .fixed_holiday_kind import FixedHolidayKind
+from .moving_holiday_kind import MovingrHolidayKind
 
-from workingless.constants import HolidayKind
-from workingless.utils import get_next_day
 
-
-class HolidayCalculator:
+class Holiday:
     """
     Calculator for holidays.
 
@@ -16,7 +15,7 @@ class HolidayCalculator:
     The ``days`` parameter is exclusive of ``month`` and ``day`` parameters.
 
     Args:
-        kind (HolidayKind): kind of holiday
+        kind (HolidayKindEnum): kind of holiday
         month (int): base holiday month
         day (int): base holiday day
         days (int): this is specific for HolidayKing.EASTER. It's the relative days number from
@@ -28,12 +27,33 @@ class HolidayCalculator:
 
     __slots__ = ('_kind', '_month', '_day', '_days')
 
-    def __init__(self, kind: HolidayKind, month: int = None, day: int = None, days: int = None):
+    def __init__(self, kind: HolidayKindEnum, month: int = None, day: int = None, days: int = None):
         assert month and day or days is not None
-        self._kind = kind
+        if kind == HolidayKindEnum.MOVING:
+            self._kind = MovingrHolidayKind(self)
+        elif kind == HolidayKindEnum.FIXED:
+            self._kind = FixedHolidayKind(self)
+        else:
+            self._kind = EasterHolidayKind(self)
         self._month = month
         self._day = day
         self._days = days
+
+    @property
+    def month(self):
+        return self._month
+
+    @property
+    def day(self):
+        return self._day
+
+    @property
+    def kind(self):
+        return self._kind.get_kind()
+
+    @property
+    def days(self):
+        return self._days
 
     def calculate(self, year: int) -> datetime.date:
         """
@@ -46,9 +66,4 @@ class HolidayCalculator:
             datetime.date: holiday date
 
         """
-        if self._kind == HolidayKind.FIXED:
-            return datetime.date(year, self._month, self._day)
-        elif self._kind == HolidayKind.MOVING:
-            return get_next_day(datetime.date(year, self._month, self._day))
-        else:
-            return easter(year) + relativedelta(days=self._days)
+        return self._kind.calculate(year)
