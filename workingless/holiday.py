@@ -1,7 +1,7 @@
 import datetime
 
 from workingless.constants import HolidayKindEnum
-from workingless.holiday_kinds import EasterHolidayKind, FixedHolidayKind, MovingrHolidayKind
+from workingless.holiday_calculators import EasterHolidayCalculator, FixedHolidayCalculator, MovingrHolidayCalculator
 
 
 class Holiday:
@@ -28,11 +28,11 @@ class Holiday:
     def __init__(self, kind: HolidayKindEnum, month: int = None, day: int = None, days: int = None):
         assert month and day or days is not None
         if kind == HolidayKindEnum.MOVING:
-            self._kind = MovingrHolidayKind(self)
+            self._kind = MovingrHolidayCalculator(self)
         elif kind == HolidayKindEnum.FIXED:
-            self._kind = FixedHolidayKind(self)
+            self._kind = FixedHolidayCalculator(self)
         else:
-            self._kind = EasterHolidayKind(self)
+            self._kind = EasterHolidayCalculator(self)
         self._month = month
         self._day = day
         self._days = days
@@ -44,10 +44,6 @@ class Holiday:
     @property
     def day(self):
         return self._day
-
-    @property
-    def kind(self):
-        return self._kind.get_kind()
 
     @property
     def days(self):
