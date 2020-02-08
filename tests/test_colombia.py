@@ -2,7 +2,7 @@ import datetime
 
 from pytest import mark
 
-from workingless import get_holidays_from_year, is_holiday
+from workingless import countries
 
 
 years_holidays = (
@@ -136,7 +136,8 @@ years_holidays = (
 
 @mark.parametrize('year, expected_holidays', years_holidays)
 def test_get_holidays_from_year(year, expected_holidays):
-    holidays = get_holidays_from_year(year=year)
+    colombia = countries.Colombia()
+    holidays = colombia.get_holidays_from_year(year=year)
 
     assert list(holidays) == expected_holidays
 
@@ -159,4 +160,5 @@ dates = (
 
 @mark.parametrize('date, result', dates)
 def test_is_holiday(date, result):
-    assert is_holiday(date=date) is result
+    colombia = countries.Colombia()
+    assert colombia.is_holiday(date=date) is result

@@ -1,9 +1,7 @@
 import datetime
 
 from workingless.constants import HolidayKindEnum
-from .easter_holiday_kind import EasterHolidayKind
-from .fixed_holiday_kind import FixedHolidayKind
-from .moving_holiday_kind import MovingrHolidayKind
+from workingless.holiday_kinds import EasterHolidayKind, FixedHolidayKind, MovingrHolidayKind
 
 
 class Holiday:
