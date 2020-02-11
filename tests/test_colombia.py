@@ -2,8 +2,6 @@ import datetime
 
 from pytest import mark
 
-from workingless import countries
-
 
 years_holidays = (
     (
@@ -135,9 +133,8 @@ years_holidays = (
 
 
 @mark.parametrize('year, expected_holidays', years_holidays)
-def test_get_holidays_from_year(year, expected_holidays):
-    colombia = countries.COL()
-    holidays = colombia.get_holidays_from_year(year=year)
+def test_get_holidays_from_year(year, expected_holidays, col_fixture):
+    holidays = col_fixture.get_holidays_from_year(year=year)
 
     assert list(holidays) == expected_holidays
 
@@ -159,9 +156,8 @@ dates = (
 
 
 @mark.parametrize('date, result', dates)
-def test_is_holiday(date, result):
-    colombia = countries.COL()
-    assert colombia.is_holiday(date=date) is result
+def test_is_holiday(date, result, col_fixture):
+    assert col_fixture.is_holiday(date=date) is result
 
 
 working_days = (
@@ -176,9 +172,8 @@ working_days = (
 
 
 @mark.parametrize('date, expected_result', working_days)
-def test_is_working_day(date, expected_result):
-    colombia = countries.COL()
-    assert colombia.is_working_day(date=date) is expected_result
+def test_is_working_day(date, expected_result, col_fixture):
+    assert col_fixture.is_working_day(date=date) is expected_result
 
 
 next_workking_days = (
@@ -190,7 +185,6 @@ next_workking_days = (
 
 
 @mark.parametrize('date, expected_result', next_workking_days)
-def test_get_next_working_day(date, expected_result):
-    colombia = countries.COL()
-    result = colombia.get_next_working_day(date=date)
+def test_get_next_working_day(date, expected_result, col_fixture):
+    result = col_fixture.get_next_working_day(date=date)
     assert result == expected_result
