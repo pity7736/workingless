@@ -20,7 +20,7 @@ Example usage:
 
     from workingless import countries
 
-    colombia = countries.Colombia()
+    colombia = countries.COL()
     holidays = colombia.get_holidays_from_year(year=2020)
     print(type(holidays))  # <class 'generator'>
     print(list(holidays))

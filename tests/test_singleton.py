@@ -1,11 +1,11 @@
-from workingless.countries import Mexico, Colombia
+from workingless.countries import MEX, COL
 
 
 def test_singleton():
-    colombia0 = Colombia()
-    colombia1 = Colombia()
-    mexico0 = Mexico()
-    mexico1 = Mexico()
+    colombia0 = COL()
+    colombia1 = COL()
+    mexico0 = MEX()
+    mexico1 = MEX()
 
     assert colombia0 is colombia1
     assert mexico0 is mexico1

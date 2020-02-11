@@ -21,7 +21,7 @@ years_holidays = (
 
 @mark.parametrize('year, expected_holidays', years_holidays)
 def test_get_holidays_from_year(year, expected_holidays):
-    mexico = countries.Mexico()
+    mexico = countries.MEX()
     holidays = mexico.get_holidays_from_year(year=year)
 
     assert list(holidays) == expected_holidays
@@ -48,5 +48,5 @@ dates = (
 
 @mark.parametrize('date, result', dates)
 def test_is_holiday(date, result):
-    mexico = countries.Mexico()
+    mexico = countries.MEX()
     assert mexico.is_holiday(date=date) is result

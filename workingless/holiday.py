@@ -1,7 +1,7 @@
 import datetime
 
 from workingless.constants import HolidayKindEnum
-from workingless.holiday_calculators import EasterHolidayCalculator, FixedHolidayCalculator, MovingrHolidayCalculator
+from workingless.holiday_calculators import EasterHolidayCalculator, FixedHolidayCalculator, MovingHolidayCalculator
 
 
 class Holiday:
@@ -23,16 +23,16 @@ class Holiday:
         AssertionError: when the all ``month``, ``day`` and ``days`` parameters have some data
     """
 
-    __slots__ = ('_kind', '_month', '_day', '_days')
+    __slots__ = ('_calculator', '_month', '_day', '_days')
 
     def __init__(self, kind: HolidayKindEnum, month: int = None, day: int = None, days: int = None):
         assert month and day or days is not None
         if kind == HolidayKindEnum.MOVING:
-            self._kind = MovingrHolidayCalculator(self)
+            self._calculator = MovingHolidayCalculator(self)
         elif kind == HolidayKindEnum.FIXED:
-            self._kind = FixedHolidayCalculator(self)
+            self._calculator = FixedHolidayCalculator(self)
         else:
-            self._kind = EasterHolidayCalculator(self)
+            self._calculator = EasterHolidayCalculator(self)
         self._month = month
         self._day = day
         self._days = days
@@ -60,4 +60,4 @@ class Holiday:
             datetime.date: holiday date
 
         """
-        return self._kind.calculate(year)
+        return self._calculator.calculate(year)

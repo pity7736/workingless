@@ -1,2 +1,2 @@
-from .colombia import Colombia
-from .mexico import Mexico
+from .col import COL
+from .mex import MEX

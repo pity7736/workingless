@@ -3,7 +3,7 @@ from workingless.holiday import Holiday
 from .country_base import CountryBase
 
 
-class Colombia(CountryBase):
+class COL(CountryBase):
 
     @staticmethod
     def _get_base_country_holidays():
