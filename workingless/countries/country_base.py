@@ -2,6 +2,7 @@ import datetime
 from abc import ABCMeta, abstractmethod
 from typing import Union, Generator, Tuple
 
+from workingless.constants import SATURDAY, SUNDAY
 from workingless.holiday import Holiday
 
 
@@ -14,6 +15,14 @@ class CountryBase(metaclass=ABCMeta):
         if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
+
+    def get_next_working_day(self, date: datetime.date) -> datetime.date:
+        if self.is_working_day(date) is False:
+            return self.get_next_working_day(date + datetime.timedelta(days=1))
+        return date
+
+    def is_working_day(self, date: datetime.date, ) -> bool:
+        return date.weekday() not in (SATURDAY, SUNDAY) and self.is_holiday(date) is False
 
     def is_holiday(self, date: Union[datetime.date, datetime.datetime]):
         """

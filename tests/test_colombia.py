@@ -162,3 +162,35 @@ dates = (
 def test_is_holiday(date, result):
     colombia = countries.COL()
     assert colombia.is_holiday(date=date) is result
+
+
+working_days = (
+    (datetime.date(2020, 2, 10), True),
+    (datetime.date(2020, 2, 11), True),
+    (datetime.date(2020, 2, 14), True),
+    (datetime.date(2020, 2, 15), False),
+    (datetime.date(2020, 2, 16), False),
+    (datetime.date(2020, 2, 16), False),
+    (datetime.date(2020, 5, 1), False),
+)
+
+
+@mark.parametrize('date, expected_result', working_days)
+def test_is_working_day(date, expected_result):
+    colombia = countries.COL()
+    assert colombia.is_working_day(date=date) is expected_result
+
+
+next_workking_days = (
+    (datetime.date(2020, 2, 10), datetime.date(2020, 2, 10)),
+    (datetime.date(2020, 2, 14), datetime.date(2020, 2, 14)),
+    (datetime.date(2020, 2, 15), datetime.date(2020, 2, 17)),
+    (datetime.date(2020, 5, 1), datetime.date(2020, 5, 4)),
+)
+
+
+@mark.parametrize('date, expected_result', next_workking_days)
+def test_get_next_working_day(date, expected_result):
+    colombia = countries.COL()
+    result = colombia.get_next_working_day(date=date)
+    assert result == expected_result
