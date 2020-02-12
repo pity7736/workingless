@@ -1,4 +1,16 @@
+# pycharm settins
 .idea/
+
+# cache
 __pycache__/
+
+# coverage
 .coverage
+
+# sphinx documentation
 _build/
+
+# distribution
+build/
+dist/
+workingless.egg-info/
