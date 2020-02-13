@@ -9,3 +9,4 @@ class HolidayKindEnum(Enum):
     FIXED = 'FIXED'
     EASTER = 'EASTER'
     MOVING = 'MOVING'
+    N_DAY = 'N_DAY'

@@ -2,8 +2,6 @@ import datetime
 
 from pytest import mark
 
-from workingless import countries
-
 
 years_holidays = (
     (
@@ -11,8 +9,12 @@ years_holidays = (
         # just fixed for now
         [
             datetime.date(2020, 1, 1),
+            datetime.date(2020, 2, 3),
+            datetime.date(2020, 3, 16),
+            datetime.date(2020, 4, 10),
             datetime.date(2020, 5, 1),
             datetime.date(2020, 9, 16),
+            datetime.date(2020, 11, 16),
             datetime.date(2020, 12, 25)
         ]
     ),
@@ -28,7 +30,7 @@ def test_get_holidays_from_year(year, expected_holidays, mex_fixture):
 
 dates = (
     (datetime.date(2001, 1, 1), True),
-    (datetime.date(2001, 4, 13), False),
+    (datetime.date(2001, 4, 13), True),
     (datetime.date(2001, 5, 28), False),
     (datetime.date(2001, 6, 18), False),
     (datetime.date(2001, 9, 16), True),
