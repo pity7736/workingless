@@ -1,13 +1,13 @@
 import datetime
 from abc import ABCMeta, abstractmethod
-from typing import Union, Generator, Tuple
+from typing import Union, Generator
 
 from workingless.constants import SATURDAY, SUNDAY
-from workingless.holiday import Holiday
 
 
 class CountryBase(metaclass=ABCMeta):
 
+    __slots__ = ()
     _instance = None
     _base_holidays = None
 
@@ -51,9 +51,9 @@ class CountryBase(metaclass=ABCMeta):
         for holiday in self._get_base_holidays():
             yield holiday.calculate(year=year)
 
-    def _get_base_holidays(self) -> Tuple[Holiday]:
+    def _get_base_holidays(self):
         if self._base_holidays is None:
-            self._base_holidays = self._get_base_country_holidays()
+            self.__class__._base_holidays = self._get_base_country_holidays()
         return self._base_holidays
 
     @staticmethod

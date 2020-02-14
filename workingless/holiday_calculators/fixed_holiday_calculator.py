@@ -1,13 +1,21 @@
 import datetime
 
-from workingless.holiday_calculator import HolidayCalculator
 
-
-class FixedHolidayCalculator(HolidayCalculator):
+class FixedHolidayCalculator:
     """
     This is the simpliest implementation.
     It returns exactly the same date.
+
+    Args:
+        month: month
+        day: day
     """
+
+    __slots__ = ('_month', '_day')
+
+    def __init__(self, month: int, day: int):
+        self._month = month
+        self._day = day
 
     def calculate(self, year: int) -> datetime.date:
         """
@@ -19,4 +27,4 @@ class FixedHolidayCalculator(HolidayCalculator):
         Returns:
             datetime.date: holiday date
         """
-        return datetime.date(year, self._holiday.month, self._holiday.day)
+        return datetime.date(year, self._month, self._day)
