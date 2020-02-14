@@ -17,11 +17,31 @@ class CountryBase(metaclass=ABCMeta):
         return cls._instance
 
     def get_next_working_day(self, date: datetime.date) -> datetime.date:
+        """
+        Get next working day from date.
+
+        Args:
+            date (datetime.date): from date
+
+        Returns:
+            datetime.date: next working day
+
+        """
         if self.is_working_day(date) is False:
             return self.get_next_working_day(date + datetime.timedelta(days=1))
         return date
 
     def is_working_day(self, date: datetime.date, ) -> bool:
+        """
+        Evaluate if date is a working day.
+
+        Args:
+            date (datetime.date): date to evaluate
+
+        Returns:
+            bool: True is date is a working day, False otherwise.
+
+        """
         return date.weekday() not in (SATURDAY, SUNDAY) and self.is_holiday(date) is False
 
     def is_holiday(self, date: Union[datetime.date, datetime.datetime]):
