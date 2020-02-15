@@ -6,7 +6,7 @@ from dateutil.relativedelta import relativedelta
 from workingless.constants import MONDAY
 
 
-class PositionDayHolidayCalculator:
+class PositionDayCalculator:
     """
     Holidays calculation when holiday is position day of month.
 

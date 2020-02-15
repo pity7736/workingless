@@ -1,7 +1,7 @@
 import datetime
 
 
-class FixedHolidayCalculator:
+class FixedCalculator:
     """
     This is the simpliest implementation.
     It returns exactly the same date.

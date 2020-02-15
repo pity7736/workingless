@@ -3,7 +3,7 @@ import datetime
 from pytest import mark
 
 from workingless.constants import JANUARY, MAY, NOVEMBER
-from workingless.holiday_calculators import FixedHolidayCalculator
+from workingless.calculators import FixedCalculator
 
 
 base_dates = (
@@ -15,6 +15,6 @@ base_dates = (
 
 @mark.parametrize('year, month, day', base_dates)
 def test_calculator(year, month, day):
-    calculator = FixedHolidayCalculator(month=month, day=day)
+    calculator = FixedCalculator(month=month, day=day)
 
     assert calculator.calculate(year=year) == datetime.date(year, month, day)

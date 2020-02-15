@@ -4,7 +4,7 @@ from dateutil.easter import easter
 from dateutil.relativedelta import relativedelta
 
 
-class EasterHolidayCalculator:
+class EasterCalculator:
     """
     Holidays calculations based in easter date.
     The holiday could be n days +/- from easter date.

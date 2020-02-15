@@ -3,7 +3,7 @@ import datetime
 from pytest import mark, raises
 
 from workingless.constants import FEBRUARY, MONDAY, MARCH, JANUARY
-from workingless.holiday_calculators import PositionDayHolidayCalculator
+from workingless.calculators import PositionDayCalculator
 
 
 base_dates = (
@@ -15,7 +15,7 @@ base_dates = (
 
 @mark.parametrize('year, month, day, position, weekday, expected_date', base_dates)
 def test_calculate(year, month, day, position, weekday, expected_date):
-    calculator = PositionDayHolidayCalculator(month=month, day=day, position=position, weekday=weekday)
+    calculator = PositionDayCalculator(month=month, day=day, position=position, weekday=weekday)
 
     assert calculator.calculate(year=year) == expected_date
 
@@ -31,7 +31,7 @@ position_params = (
 @mark.parametrize('year, month, day, position, weekday', position_params)
 def test_validate_position(year, month, day, position, weekday):
     with raises(ValueError):
-        PositionDayHolidayCalculator(month=month, day=day, position=position, weekday=weekday)
+        PositionDayCalculator(month=month, day=day, position=position, weekday=weekday)
 
 
 wrong_base_dates = (
@@ -42,7 +42,7 @@ wrong_base_dates = (
 
 @mark.parametrize('year, month, day, position, weekday', wrong_base_dates)
 def test_wrong_base_dates(year, month, day, position, weekday):
-    calculator = PositionDayHolidayCalculator(month=month, day=day, position=position, weekday=weekday)
+    calculator = PositionDayCalculator(month=month, day=day, position=position, weekday=weekday)
 
     with raises(ValueError):
         calculator.calculate(year)

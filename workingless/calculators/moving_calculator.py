@@ -4,7 +4,7 @@ from workingless.constants import MONDAY
 from workingless.utils import get_next_day
 
 
-class MovingHolidayCalculator:
+class MovingCalculator:
     """
     Holidays calculation based in moving date if
     date isn't the specific date.

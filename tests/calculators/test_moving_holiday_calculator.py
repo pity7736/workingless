@@ -3,7 +3,7 @@ import datetime
 from pytest import mark
 
 from workingless.constants import JANUARY, MONDAY, TUESDAY, FRIDAY, FEBRUARY, DECEMBER
-from workingless.holiday_calculators import MovingHolidayCalculator
+from workingless.calculators import MovingCalculator
 
 
 base_dates = (
@@ -17,6 +17,6 @@ base_dates = (
 
 @mark.parametrize('year, month, day, next_day, expected_date', base_dates)
 def test_calculate(year, month, day, next_day, expected_date):
-    calculator = MovingHolidayCalculator(month=month, day=day, next_day=next_day)
+    calculator = MovingCalculator(month=month, day=day, next_day=next_day)
 
     assert calculator.calculate(year=year) == expected_date
