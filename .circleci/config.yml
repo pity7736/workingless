@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7
+
+    working_directory: ~/workingless
+
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: pip install -r requirements_dev.txt
+
+      - run:
+          name: run tests
+          command: sh run_tests.sh
