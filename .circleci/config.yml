@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build-python-3.7: &template
     docker:
       - image: circleci/python:3.7
 
@@ -17,3 +17,27 @@ jobs:
       - run:
           name: run tests
           command: sh run_tests.sh
+
+  build-python-3.6:
+    <<: *template
+    docker:
+      - image: circleci/python:3.6
+
+  build-python-3.5:
+    <<: *template
+    docker:
+      - image: circleci/python:3.5
+
+  build-python-3.8:
+    <<: *template
+    docker:
+      - image: circleci/python:3.8
+
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - build-python-3.5
+      - build-python-3.6
+      - build-python-3.8
