@@ -7,6 +7,5 @@ Contents
 
 .. toctree::
 
-  holiday.rst
-  holiday_calculators/index
+  calculators.rst
   utils.rst
