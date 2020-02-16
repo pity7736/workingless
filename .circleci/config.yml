@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build: &template
+  test-python-3.7: &template
     docker:
       - image: circleci/python:3.7
 
@@ -40,4 +40,5 @@ workflows:
     jobs:
       - test-python-3.5
       - test-python-3.6
+      - test-python-3.7
       - test-python-3.8
