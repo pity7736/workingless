@@ -69,7 +69,9 @@ class CountryBase(metaclass=ABCMeta):
            Generator: holidays from that year.
        """
         for holiday in self._get_base_holidays():
-            yield holiday.calculate(year=year)
+            holiday_date = holiday.calculate(year=year)
+            if holiday_date:
+                yield holiday_date
 
     def _get_base_holidays(self):
         if self._base_holidays is None:

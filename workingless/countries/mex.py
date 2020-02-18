@@ -1,6 +1,6 @@
 from workingless import constants
-from workingless.calculators import FixedCalculator, PositionDayCalculator,\
-    EasterCalculator
+from workingless.calculators import FixedCalculator, PositionDayCalculator, \
+    EasterCalculator, EveryNYearsCalculator
 from .country_base import CountryBase
 
 
@@ -16,5 +16,6 @@ class MEX(CountryBase):
             FixedCalculator(month=constants.MAY, day=1),
             FixedCalculator(month=constants.SEPTEMBER, day=16),
             PositionDayCalculator(month=constants.NOVEMBER, day=1, position=3),
+            EveryNYearsCalculator(month=constants.DECEMBER, day=1, every=6),
             FixedCalculator(month=constants.DECEMBER, day=25),
         )

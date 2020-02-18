@@ -6,8 +6,7 @@ from pytest import mark
 years_holidays = (
     (
         2020,
-        # just fixed for now
-        [
+        (
             datetime.date(2020, 1, 1),
             datetime.date(2020, 2, 3),
             datetime.date(2020, 3, 16),
@@ -16,7 +15,74 @@ years_holidays = (
             datetime.date(2020, 9, 16),
             datetime.date(2020, 11, 16),
             datetime.date(2020, 12, 25)
-        ]
+        )
+    ),
+    (
+        2018,
+        (
+            datetime.date(2018, 1, 1),
+            datetime.date(2018, 2, 5),
+            datetime.date(2018, 3, 19),
+            datetime.date(2018, 3, 30),
+            datetime.date(2018, 5, 1),
+            datetime.date(2018, 9, 16),
+            datetime.date(2018, 11, 19),
+            datetime.date(2018, 12, 1),
+            datetime.date(2018, 12, 25)
+        )
+    ),
+    (
+        2016,
+        (
+            datetime.date(2016, 1, 1),
+            datetime.date(2016, 2, 1),
+            datetime.date(2016, 3, 21),
+            datetime.date(2016, 3, 25),
+            datetime.date(2016, 5, 1),
+            datetime.date(2016, 9, 16),
+            datetime.date(2016, 11, 21),
+            datetime.date(2016, 12, 25)
+        )
+    ),
+    (
+        2021,
+        (
+            datetime.date(2021, 1, 1),
+            datetime.date(2021, 2, 1),
+            datetime.date(2021, 3, 15),
+            datetime.date(2021, 4, 2),
+            datetime.date(2021, 5, 1),
+            datetime.date(2021, 9, 16),
+            datetime.date(2021, 11, 15),
+            datetime.date(2021, 12, 25)
+        )
+    ),
+    (
+        2023,
+        (
+            datetime.date(2023, 1, 1),
+            datetime.date(2023, 2, 6),
+            datetime.date(2023, 3, 20),
+            datetime.date(2023, 4, 7),
+            datetime.date(2023, 5, 1),
+            datetime.date(2023, 9, 16),
+            datetime.date(2023, 11, 20),
+            datetime.date(2023, 12, 25)
+        )
+    ),
+    (
+        2024,
+        (
+            datetime.date(2024, 1, 1),
+            datetime.date(2024, 2, 5),
+            datetime.date(2024, 3, 18),
+            datetime.date(2024, 3, 29),
+            datetime.date(2024, 5, 1),
+            datetime.date(2024, 9, 16),
+            datetime.date(2024, 11, 18),
+            datetime.date(2024, 12, 1),
+            datetime.date(2024, 12, 25)
+        )
     ),
 )
 
@@ -25,7 +91,7 @@ years_holidays = (
 def test_get_holidays_from_year(year, expected_holidays, mex_fixture):
     holidays = mex_fixture.get_holidays_from_year(year=year)
 
-    assert list(holidays) == expected_holidays
+    assert tuple(holidays) == expected_holidays
 
 
 dates = (
