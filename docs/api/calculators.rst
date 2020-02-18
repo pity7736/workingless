@@ -27,3 +27,9 @@ Position Day Calculator
 
 .. autoclass:: workingless.calculators.PositionDayCalculator
    :members:
+
+Every N Years Calculator
+------------------------
+
+.. autoclass:: workingless.calculators.EveryNYearsCalculator
+   :members:
