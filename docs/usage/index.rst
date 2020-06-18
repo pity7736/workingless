@@ -1,24 +1,6 @@
-===========
-Workingless
-===========
-.. image:: https://readthedocs.org/projects/workingless/badge/?version=latest
-    :target: https://workingless.readthedocs.io/en/latest/?badge=latest
-    :alt: Documentation Status
-
-.. image:: https://circleci.com/gh/pity7736/workingless.svg?style=shield
-    :target: https://circleci.com/gh/pity7736/workingless
-
-
-
-Workingless is a lib for holidays calculations. Currently it supports Colombia
-and Mexico (beta) holidays.
-
-
-`See full documentation <https://workingless.readthedocs.io/en/latest/?badge=latest>`_.
-
-
 Usage
------
+=====
+
 
 Workingless has four methods for the countries supported, they are:
 ``get_holidays_from_year``, ``is_holiday``, ``is_working_day`` and ``get_next_working_day``.
@@ -61,10 +43,3 @@ Example usage:
     colombia.is_holiday(date=datetime.date(2020, 1, 1))  # True
     colombia.is_working_day(datetime.date(2020, 1, 1)  # False
     colombia.get_next_working_day(datetime.date(2020, 1, 1)  # datetime.date(2020, 1, 2)
-
-License
--------
-
-Distributed under the terms of the GPLv3 license.
-
-See `license <https://github.com/pity7736/workingless/blob/master/LICENSE>`_.

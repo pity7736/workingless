@@ -9,10 +9,22 @@ Welcome to workingless' documentation!
 Holidays and working days calculations.
 
 
+Installation
+------------
+
+
+.. code-block:: bash
+
+    $ pip install workingless
+
+
+Contents
+--------
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
+   usage/index
    api/index
 
 
