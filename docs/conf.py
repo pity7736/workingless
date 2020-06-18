@@ -15,6 +15,16 @@ import sys
 sys.path.insert(0, os.path.abspath('..'))
 
 
+version_file = os.path.join(os.path.dirname(os.path.dirname(__file__)),
+                            'workingless', '__init__.py')
+
+with open(version_file) as f:
+    for line in f:
+        if line.startswith('__version__ ='):
+            _, _, version = line.partition('=')
+            VERSION = version.strip(" \n'\"")
+            break
+
 # -- Project information -----------------------------------------------------
 
 project = 'workingless'
@@ -22,7 +32,7 @@ copyright = '2020, Julián Cortés'
 author = 'Julián Cortés'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.0'
+release = VERSION
 
 
 # -- General configuration ---------------------------------------------------
