@@ -5,7 +5,7 @@ Workingless
     :target: https://workingless.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. image:: https://circleci.com/gh/pity7736/workingless.svg?style=svg
+.. image:: https://circleci.com/gh/pity7736/workingless.svg?style=shield
     :target: https://circleci.com/gh/pity7736/workingless
 
 
