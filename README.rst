@@ -5,6 +5,10 @@ Workingless
     :target: https://workingless.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
+.. image:: https://circleci.com/gh/pity7736/workingless.svg?style=svg
+    :target: https://circleci.com/gh/pity7736/workingless
+
+
 
 Workingless is a lib for holidays calculations. Currently it supports Colombia
 holidays. Mexico coming soon.
