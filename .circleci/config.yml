@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: install dependencies
-          command: pip install -r requirements_dev.txt
+          command: pip install -r requirements.txt
       - run:
           name: radon
           command: sh run_radon.sh
