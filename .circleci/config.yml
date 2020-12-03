@@ -28,6 +28,11 @@ jobs:
     docker:
       - image: circleci/python:3.8
 
+  test-python-3.9:
+    <<: *template
+    docker:
+      - image: circleci/python:3.9
+
 
 workflows:
   version: 2
@@ -36,3 +41,4 @@ workflows:
       - test-python-3.6
       - test-python-3.7
       - test-python-3.8
+      - test-python-3.9
