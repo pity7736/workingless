@@ -65,6 +65,6 @@ Example usage:
 License
 -------
 
-Distributed under the terms of the GPLv3 license.
+Distributed under the terms of the LGPLv3 license.
 
 See `license <https://github.com/pity7736/workingless/blob/master/LICENSE>`_.
